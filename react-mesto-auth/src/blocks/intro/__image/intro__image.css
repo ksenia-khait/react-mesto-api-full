@@ -1,0 +1,19 @@
+.intro__image {
+    background-image: url("../../../images/image.jpg");
+
+    width: 128px;
+    height: 128px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: 41px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media all and (max-width: 900px) {
+    .intro__image {
+        width: 128px;
+        height: 128px;
+        margin: 0 0 22px;
+    }
+}

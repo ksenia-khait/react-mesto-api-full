@@ -1,0 +1,25 @@
+.intro__edit {
+    background: url(../../../images/pen.svg) no-repeat;
+    background-size: initial;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    border: 1px solid white;
+    margin-top: 9px;
+}
+
+.intro__edit:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+@media all and (max-width: 900px) {
+    .intro__edit {
+        width: 18px;
+        height: 18px;
+        padding: 4px;
+        border: 1px solid white;
+        margin-top: 5px;
+    }
+}

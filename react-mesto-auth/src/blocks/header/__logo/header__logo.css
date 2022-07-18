@@ -1,0 +1,17 @@
+
+.header__logo {
+    background-image: url(../../../images/Vector.svg);
+    height: 33px;
+    width: auto;
+    background-repeat: no-repeat;
+}
+
+.header__logo:hover {
+    cursor: pointer;
+}
+
+@media all and (max-width: 1279px) {
+    .header__logo {
+        margin-left: 27px;
+    }
+}

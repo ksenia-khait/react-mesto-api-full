@@ -1,0 +1,7 @@
+.grid__heart_active {
+  background: url("../../../../images/heart-active.svg");
+  background-position: center;
+  border: 0;
+  width: 22px;
+  height: 19px;
+}

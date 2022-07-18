@@ -1,0 +1,10 @@
+.intro__description {
+    display: flex;
+    flex-direction: column;
+}
+
+@media all and (max-width: 900px) {
+    .intro__description {
+        align-items: center;
+    }
+}

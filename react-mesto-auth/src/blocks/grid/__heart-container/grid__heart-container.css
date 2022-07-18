@@ -1,0 +1,4 @@
+.grid__heart-container {
+    display: flex;
+    flex-direction: column;
+}

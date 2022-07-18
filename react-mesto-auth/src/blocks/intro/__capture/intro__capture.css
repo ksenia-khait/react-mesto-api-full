@@ -1,0 +1,18 @@
+.intro__capture {
+    display: block;
+    color: white;
+    margin: 0;
+    font-weight: 400;
+    line-height: 22px;
+    font-size: 18px;
+    max-width: 300px;
+    overflow-wrap: break-word;
+}
+
+@media all and (max-width: 900px) {
+    .intro__capture {
+        font-size: 14px;
+        line-height: 17px;
+        max-width: 189px;
+    }
+}

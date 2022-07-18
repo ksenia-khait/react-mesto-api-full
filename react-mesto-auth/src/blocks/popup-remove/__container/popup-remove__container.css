@@ -1,0 +1,20 @@
+.popup-remove__container {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    height: 181px;
+    border-color: white;
+    border-radius: 10px;
+    position: relative;
+    background-color: white;
+}
+
+@media all and (max-width: 900px) {
+    .popup-remove__container {
+        display: flex;
+        flex-direction: column;
+
+        width: 282px;
+        height: 150px;
+    }
+}

@@ -1,0 +1,14 @@
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 51px;
+}
+
+@media all and (max-width: 900px) {
+    .intro {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 36px;
+    }
+}

@@ -1,0 +1,12 @@
+.popup-image__image {
+  background-size: cover;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+@media all and (max-width: 900px) {
+  .popup-image__image {
+    width: 240px;
+    height: 299px;
+  }
+}

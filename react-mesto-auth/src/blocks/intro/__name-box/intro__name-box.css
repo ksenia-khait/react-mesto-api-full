@@ -1,0 +1,14 @@
+.intro__name-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+@media all and (max-width: 900px) {
+    .intro__name-box {
+        display: flex;
+        justify-content: center;
+        margin-left: 30px;
+        margin-bottom: 14px;
+    }
+}

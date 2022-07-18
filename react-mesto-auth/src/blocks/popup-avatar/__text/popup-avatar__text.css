@@ -1,0 +1,21 @@
+.popup-avatar__text {
+    display: block;
+    max-width: 330px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 34px 0 34px 36px;
+}
+
+@media all and (max-width: 900px) {
+    .popup-avatar__text {
+        font-size: 18px;
+        max-width: 238px;
+        margin: 25px auto 48px;
+        display: flex;
+        flex-direction: column;
+        width: 282px;
+        height: 200px;
+    }
+}
+

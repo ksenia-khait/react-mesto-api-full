@@ -86,7 +86,7 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'https://api.mesto-ksenia.students.nomoredomains.xyz/',
     headers: {
         authorization: '5b7257f4-9ad7-4ee1-8d8a-9e0ee2ee2e91',
         'Content-Type': 'application/json'

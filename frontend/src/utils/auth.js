@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:3001'
+export const baseUrl = 'https://api.mesto-ksenia.students.nomoredomains.xyz/'
 
  function getResponseData(res) {
     if (res.ok) {

@@ -3,6 +3,7 @@ const regExEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const allowedCors = [
   'https://mesto-ksenia.students.nomoredomains.xyz',
+  'http://mesto-ksenia.students.nomoredomains.xyz',
   'http://localhost:3000',
   'http://localhost:3001',
 ];

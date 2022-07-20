@@ -1,4 +1,4 @@
-export const baseUrl = 'https://api.mesto-ksenia.students.nomoredomains.xyz/'
+export const baseUrl = 'https://api.mesto-ksenia.students.nomoredomains.xyz'
 
  function getResponseData(res) {
     if (res.ok) {
@@ -39,8 +39,3 @@ export function getContent(token) {
     })
         .then((res) => getResponseData(res))
 }
-
-
-
-
-

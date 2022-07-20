@@ -1,4 +1,4 @@
-// const { JWT_SECRET } = process.env;
+const { JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/unathorizedError');
 
@@ -11,7 +11,7 @@ module.exports.auth = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, 'very-secret-key');
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     throw new UnauthorizedError('Необходимо пройти авторизацию');
   }

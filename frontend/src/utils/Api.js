@@ -11,27 +11,34 @@ class Api {
         return Promise.reject(`Ошибка ${res.status}`);
     }
 
-    getProfile() {
+    getProfile(token) {
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
         })
             .then(this._checkResponse)
     }
 
-    getInitialCards() {
+    getInitialCards(token) {
         return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
         })
             .then(this._checkResponse)
     }
 
-    editProfile(name, about) {
+    editProfile(user) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                name,
-                about
+                name: user.name,
+                about: user.about,
             })
         })
             .then(this._checkResponse)
@@ -87,8 +94,8 @@ class Api {
 
 export const api = new Api({
     baseUrl: 'https://api.mesto-ksenia.students.nomoredomains.xyz',
-    headers: {
-        authorization: '5b7257f4-9ad7-4ee1-8d8a-9e0ee2ee2e91',
-        'Content-Type': 'application/json'
-    }
+    // headers: {
+    //     authorization: '5b7257f4-9ad7-4ee1-8d8a-9e0ee2ee2e91',
+    //     'Content-Type': 'application/json'
+    // }
 });

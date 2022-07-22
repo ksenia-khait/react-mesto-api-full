@@ -14,7 +14,10 @@ import Login from './Login';
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
-import {register, authorize, getContent} from "../utils/auth"
+// import {register, authorize, getContent} from "../utils/auth"
+import * as auth from "../utils/auth";
+
+// import login from "./Login";
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -32,24 +35,70 @@ function App() {
 
     const history = useHistory();
 
-    useEffect(() => {
-        api.getProfile()
-            .then((data) => {
-                setCurrentUser(data);
+    function handleRegister(password, email) {
+        return auth
+            .register(password, email)
+            .then(() => {
+                setIsSignup(true);
+                setIsSignUpPopupOpen(true)
+                setTimeout(() => {
+                    setIsSignUpPopupOpen(false);
+                }, 2000);
+                history.push('/sign-in');
             })
-            .catch(err => console.log(err))
-    }, []);
+            .catch((err) => {
+                console.log(err.message)
+                setIsSignup(false);
+                setIsSignUpPopupOpen(true)
+            })
+    }
+
+    function handleLogin(password, email) {
+        return auth
+            .authorize(password, email)
+            .then((res) => {
+                if (res.token) {
+                    localStorage.setItem('jwt', res.token);
+                    checkToken();
+                }
+            })
+
+            .catch((err) => {
+                console.log(err.message);
+                setIsSignup(false);
+                setIsSignUpPopupOpen(true);
+            })
+    }
 
     useEffect(() => {
-        api.getInitialCards()
-            .then((cards) => setCards(cards))
-            .catch(err => console.log(err))
-    }, [])
+        if (isLoggedIn) {
+            api.getInitialCards()
+                .then((cards) => setCards(cards))
+                .catch(err => console.log(err))
+            api.getProfile()
+                .then((data) => setCurrentUser(data))
+                .catch(err => console.log(err))
+        }
+    }, [isLoggedIn]);
 
-    function handleUpdateUser(name, about) {
-        api.editProfile(name, about)
-            .then((item) => {
-                setCurrentUser(item);
+
+    function checkToken() {
+        let token = localStorage.getItem('jwt');
+        if (localStorage.getItem('jwt')) {
+            auth.getContent(token)
+                .then((res) => {
+                    setEmail(res.email);
+                    setIsLoggedIn(true);
+                    history.push('/');
+                })
+                .catch((err) => console.log(err.message));
+        }
+    }
+
+    function handleUpdateUser(userData) {
+        api.editProfile(userData)
+            .then((userData) => {
+                setCurrentUser(userData);
                 closeAllPopups();
             })
             .catch(err => console.log(err))
@@ -116,54 +165,11 @@ function App() {
         setIsSignUpPopupOpen(false)
     }
 
-    function handleRegister(password, email) {
-        return register(password, email)
-            .then(res => {
-                if (res.data._id) {
-                    setIsSignup(true);
-                    setIsSignUpPopupOpen(true)
-                    setTimeout(() => {
-                        setIsSignUpPopupOpen(false);
-                    }, 2000);
-                    history.push('/sign-in');
-                } else {
-                    setIsSignup(false);
-                    setIsSignUpPopupOpen(true)
-                }
-            })
-            .catch((err) => {
-                console.log(err.message)
-                setIsSignup(false);
-                setIsSignUpPopupOpen(true)
-            })
-    }
-
-    function handleLogin(password, email) {
-        return authorize(password, email)
-            .then(data => {
-                localStorage.setItem('jwt', data.token);
-                setEmail(email);
-                setIsSignup(true);
-                history.push('/')
-            })
-
-            .catch((err) => {
-                console.log(err.message);
-                setIsSignup(false);
-                setIsSignUpPopupOpen(true);
-            })
-    }
-
-    function checkToken() {
-        if (localStorage.getItem('jwt')) {
-            let token = localStorage.getItem('jwt');
-            getContent(token)
-                .then((res) => {
-                    setEmail(res.data.email);
-                    setIsLoggedIn(true);
-                })
-                .catch((err) => console.log(err.message));
-        }
+    function handleSignOut() {
+        localStorage.removeItem('jwt');
+        setEmail('');
+        setIsLoggedIn(false);
+        history.push('/sign-in');
     }
 
     useEffect(() => {
@@ -172,16 +178,9 @@ function App() {
 
     useEffect(() => {
         if (isLoggedIn) {
-            history.push('/')
+            history.push('/');
         }
-    }, [isLoggedIn]);
-
-    function handleSignOut() {
-        localStorage.removeItem('jwt');
-        setEmail('');
-        setIsLoggedIn(false);
-        history.push('/sign-in');
-    }
+    }, [isLoggedIn, history]);
 
     return (
 

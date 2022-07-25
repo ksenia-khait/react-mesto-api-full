@@ -5,5 +5,5 @@
 - операции с пользователями (добавление, удаление, редактирование данных).
 
 
-pubIP: 51.250.107.229,
+pubIP: 51.250.19.133,
 domen: https://mesto-ksenia.students.nomoredomains.xyz/

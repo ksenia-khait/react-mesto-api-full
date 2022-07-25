@@ -9,7 +9,9 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
         ` ${isOwn ? 'grid__trash' : 'grid__trash_hidden'}`
     );
 
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some((item) => {
+        return item === currentUser._id
+    });
     const cardLikeButtonClassName = `grid__heart ${
         isLiked && "grid__heart_active"
     }`;

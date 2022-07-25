@@ -54,7 +54,6 @@ function App() {
     }
 
     function handleLogin(password, email) {
-
         return auth
             .authorize(password, email)
             .then((res) => {
@@ -117,7 +116,7 @@ function App() {
         if (token) {
             api.addCard(name, link, token)
                 .then(({card}) => {
-                    setCards([{name: card.card.name, link: card.card.link, owner: card.card.owner}, ...cards])
+                    setCards([{name: card.name, link: card.link, owner: card.owner, likes: card.likes, _id: card._id}, ...cards])
                 })
                 .catch(err => console.log(err))
         }
@@ -138,13 +137,13 @@ function App() {
     function handleCardLike(card) {
         const token = localStorage.getItem('jwt');
         if (token) {
-            const isLiked = card.likes.some((item) => item._id === currentUser._id);
+            const isLiked = card.likes.some((item) => item === currentUser._id);
             const changeLikeCardStatus = !isLiked
                 ? api.addLike(card._id, token)
                 : api.deleteLike(card._id, token)
             changeLikeCardStatus
                 .then((newCard) => {
-                    setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+                    setCards((state) => state.map((c) => c._id === card._id ? newCard.card : c));
                 })
                 .catch(err => console.log(err))
         }

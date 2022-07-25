@@ -109,8 +109,6 @@ class Api {
         })
             .then(this._checkResponse)
     }
-
-
 }
 
 export const api = new Api({

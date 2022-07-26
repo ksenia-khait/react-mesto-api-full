@@ -71,7 +71,9 @@ function App() {
         let token = localStorage.getItem('jwt');
         if (isLoggedIn) {
             api.getProfile(token)
-                .then((data) => setCurrentUser(data))
+                .then((user) => {
+                    setCurrentUser(user)
+                })
                 .catch(err => console.log(err));
 
             api.getInitialCards(token)

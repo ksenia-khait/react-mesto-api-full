@@ -42,7 +42,7 @@ app.post('/signup', validateCreateUser, createUser);
 app.use('/', auth, require('./routes/users'));
 app.use('/', auth, require('./routes/cardss'));
 
-app.use('*', (req, res, next) => {
+app.use('*', auth, (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 

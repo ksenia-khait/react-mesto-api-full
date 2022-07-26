@@ -7,3 +7,4 @@
 
 pubIP: 51.250.19.133,
 domen: https://mesto-ksenia.students.nomoredomains.xyz/
+server domen: https://api.mesto-ksenia.students.nomoredomains.xyz/

@@ -59,7 +59,6 @@ function App() {
                     checkToken();
                 }
             })
-
             .catch((err) => {
                 console.log(err.message);
                 setIsSignup(false);
@@ -70,6 +69,7 @@ function App() {
     useEffect(() => {
         let token = localStorage.getItem('jwt');
         if (isLoggedIn) {
+
             api.getProfile(token)
                 .then((user) => {
                     setCurrentUser(user)
@@ -92,6 +92,7 @@ function App() {
                 .then((res) => {
                     setEmail(res.email);
                     setIsLoggedIn(true);
+                    setCurrentUser(res)
                     history.push('/');
                 })
                 .catch((err) => console.log(err.message));

@@ -14,7 +14,6 @@ import Login from './Login';
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
-// import {register, authorize, getContent} from "../utils/auth"
 import * as auth from "../utils/auth";
 
 // import login from "./Login";

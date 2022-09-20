@@ -20,9 +20,9 @@
 + Express.js
 
 ### Доступ
-public IP: 51.250.19.133,
-domain: https://mesto-ksenia.students.nomoredomains.xyz/
-server domain: https://api.mesto-ksenia.students.nomoredomains.xyz/
++ public IP: 51.250.19.133,
++ domain: https://mesto-ksenia.students.nomoredomains.xyz/
++ server domain: https://api.mesto-ksenia.students.nomoredomains.xyz/
 
 Использована виртуальная машина на Yandex.Cloud
 

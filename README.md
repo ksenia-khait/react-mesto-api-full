@@ -1,13 +1,27 @@
-# react-mesto-api-full
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: 
+# Mesto-React - SPA приложение на React с регистрацией, авторизацией и подключением к API. Аналог Инстаграма.
+
+##### Данный проект выполнен в рамках учебного курса от Яндекс.Практикум. Учебный проект #11
+
+Описание: проект Mesto, включающий фронтенд и бэкенд части приложения с возможностями: 
 - авторизации и регистрации пользователей, 
 - операции с карточками(добавление/удаление, постановка/снятие лайка карточки),
 - операции с пользователями (добавление, удаление, редактирование данных).
 
+### Стек Технологий: 
+Фронтенд
++ HTML5
++ CSS3
++ BEM
++ Create React App
 
-pubIP: 51.250.19.133,
-domen: https://mesto-ksenia.students.nomoredomains.xyz/
-server domen: https://api.mesto-ksenia.students.nomoredomains.xyz/
+Бекенд:
++ MongoDB
++ Node.js
++ Express.js
+
+public IP: 51.250.19.133,
+domain: https://mesto-ksenia.students.nomoredomains.xyz/
+server domain: https://api.mesto-ksenia.students.nomoredomains.xyz/
 
 Другие этапы проекта Mesto:
 1. [mesto](https://github.com/ksenia-khait/mesto) - проект Mesto на ванильном JS

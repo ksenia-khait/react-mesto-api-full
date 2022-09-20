@@ -19,9 +19,12 @@
 + Node.js
 + Express.js
 
+### Доступ
 public IP: 51.250.19.133,
 domain: https://mesto-ksenia.students.nomoredomains.xyz/
 server domain: https://api.mesto-ksenia.students.nomoredomains.xyz/
+
+Использована виртуальная машина на Yandex.Cloud
 
 Другие этапы проекта Mesto:
 1. [mesto](https://github.com/ksenia-khait/mesto) - проект Mesto на ванильном JS
